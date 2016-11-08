@@ -1,0 +1,28 @@
+
+body {
+	font-weight: bolder;
+}
+
+button {
+	margin: 5px;
+	color: white;
+	background-color: teal;
+	border-radius: 5px;
+}
+
+form {
+	margin-right: 100px;
+	display: block;
+	float: right;	
+}
+
+#selectCity {
+	background-color: teal;
+	color: white;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+#city-input{
+	margin-top: 5px;
+}
