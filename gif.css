@@ -6,23 +6,46 @@ body {
 button {
 	margin: 5px;
 	color: white;
-	background-color: teal;
+	background-color: #00CCCC;
 	border-radius: 5px;
+	padding: 3px 13px;
+}
+button:hover {
+	background-color: teal;
 }
 
 form {
-	margin-right: 100px;
 	display: block;
 	float: right;	
 }
 
 #selectCity {
-	background-color: teal;
+	background-color: #00CCCC;
 	color: white;
 	border-radius: 5px;
 	margin-top: 5px;
+	padding: 3px 13px;
+}
+#selectCity:hover {
+	background-color: teal;
 }
 
-#city-input{
+#city-input {
 	margin-top: 5px;
+	padding: 3px 200px 3px 0px ;
+	border-color: #00CCCC;
+	border-width: 1px;
 }
+
+div.container {
+	position: static;
+	width: 70%;
+	height: auto;
+}
+
+div.city {	
+	float: left;
+	padding: 5px;
+}
+
+

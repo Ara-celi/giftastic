@@ -3,27 +3,29 @@ var topics = ['Honolulu', 'Ocho Rios', 'Chang Mai', 'Paris', 'Barcelona', 'Frank
 console.log("favorite city "+topics[4])
 
 function displayCityInfo(){
-
+$("#cityGifs").empty();
 	var cityName = $(this).attr('data-name');
-	var queryURL = //"http://api.giphy.com/v1/gifs/search?q=" + cityName + "&limit=10&rating=pg-13&fmt=json";
-                   "http://api.giphy.com/v1/gifs/search?q="+cityName+"&api_key=dc6zaTOxFJmzC&limit=10&rating=pg-13";
-				//"http://upload.giphy.com/v1/gifs/search?q=+prince+&api_key=dc6zaTOxFJmzC&limit=10&rating=pg-13&fmt=json";                   	
-	
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+cityName+"&api_key=dc6zaTOxFJmzC&limit=10&rating=pg-13";
+				              		
 	$.ajax({url: queryURL, method: 'GET'}).done(function(response){
 		console.log("success got data ", cityName);
 		console.log(response);
 
+for(var j = 0; j < response.data.length; j++) { 
+
 		var cityDiv = $('<div class="city">');
 		
-		var rating = response.rating;
+		var rating = response.data[j].rating;
 		var pOne = $('<p>').text("Rating: " + rating);
 		cityDiv.prepend(pOne);
 
-		var image = $('<img>').attr(src="http://upload.giphy.com/v1/gifs", response.image);
+		
+		var image = $('<img>').attr("src", response.data[j].images.fixed_height.url);
 		cityDiv.append(image);
 
 		$('#cityGifs').prepend(cityDiv);
-		console.log(response.rating)
+		console.log(response.data[j].images.fixed_height.url);
+}
 	})
 	
 }
@@ -42,13 +44,16 @@ function renderButtons(){
 }
 	
 $('#selectCity').on('click', function() {
-
+ 	
 	var topic = $('#city-input').val().trim();
 	topics.push(topic);
 	renderButtons();
+	console.log("my city of choice "+topic)
 	return false;
 })
 
 $(document).on('click', '.city', displayCityInfo);
+
+
 
 renderButtons();
