@@ -5,7 +5,7 @@ console.log("favorite city "+topics[4])
 function displayCityInfo(){
 $("#cityGifs").empty();
 	var cityName = $(this).attr('data-name');
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+cityName+"&api_key=dc6zaTOxFJmzC&limit=10&rating=pg-13";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+cityName+"&api_key=dc6zaTOxFJmzC&limit=10&rating=pg-13";
 				              		
 	$.ajax({url: queryURL, method: 'GET'}).done(function(response){
 		console.log("success got data ", cityName);
